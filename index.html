@@ -2,818 +2,275 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>MONG Dance & Fitness Studio</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Dancing+Script:wght@400;500;600;700&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"/>
-<style>
-:root{
-  --gold:#C9A84C;
-  --gold-light:#E8C97A;
-  --bg:#F7F4EE;
-  --bg2:#EFEBE2;
-  --dark:#1a1a1a;
-  --dark2:#111111;
-  --white:#FFFFFF;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:var(--bg);font-family:'Montserrat',sans-serif;color:var(--dark);overflow-x:hidden;}
-::-webkit-scrollbar{width:4px;}
-::-webkit-scrollbar-track{background:var(--bg);}
-::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px;}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MONG Dance & Fitness Studio</title>
 
-/* ── STICKY HEADER ── */
-#sticky-header{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:12px 48px;
-  background:rgba(247,244,238,0.94);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(201,168,76,0.2);
-  transform:translateY(-100%);opacity:0;
-  transition:transform 0.6s ease,opacity 0.6s ease;
-}
-#sticky-header.visible{transform:translateY(0);opacity:1;}
-.hdr-left{display:flex;align-items:center;gap:14px;}
-.hdr-logo{
-  width:38px;height:38px;border-radius:50%;
-  background:var(--dark);border:1.5px solid var(--gold);
-  overflow:hidden;
-  display:flex;align-items:center;justify-content:center;
-  font-size:13px;color:var(--gold);font-weight:700;letter-spacing:1px;
-  flex-shrink:0;position:relative;
-}
-.hdr-logo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%;z-index:2;}
-.hdr-name{font-size:10px;font-weight:600;letter-spacing:3px;color:var(--gold);text-transform:uppercase;}
-.hdr-nav{display:flex;gap:28px;}
-.hdr-nav a{font-size:10px;font-weight:500;letter-spacing:2px;color:var(--dark);text-decoration:none;text-transform:uppercase;transition:color 0.3s;cursor:pointer;}
-.hdr-nav a:hover{color:var(--gold);}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-/* ── HERO ── */
-#hero{
-  min-height:100vh;background:var(--dark);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  position:relative;overflow:hidden;
-}
-#hero::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at center,rgba(201,168,76,0.07) 0%,transparent 70%);
-  pointer-events:none;
-}
-.hero-logo-wrap{
-  width:150px;height:150px;border-radius:50%;
-  background:var(--dark);border:2.5px solid var(--gold);
-  overflow:hidden;
-  display:flex;align-items:center;justify-content:center;
-  margin-bottom:36px;flex-shrink:0;
-  position:relative;
-  transition:box-shadow 0.4s;
-}
-.hero-logo-wrap:hover{box-shadow:0 0 30px rgba(201,168,76,0.25);}
-.hero-logo-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%;z-index:2;}
-.hero-title{
-  font-family:'Montserrat',sans-serif;
-  font-size:clamp(14px,2.6vw,26px);font-weight:700;
-  letter-spacing:6px;text-transform:uppercase;
-  color:var(--gold);text-align:center;padding:0 24px;margin-bottom:28px;
-}
-.hero-quote{
-  font-family:'Dancing Script',cursive;
-  font-size:clamp(22px,3.5vw,36px);font-weight:500;
-  color:var(--gold);text-align:center;padding:0 40px;opacity:0.88;line-height:1.7;
-}
-.scroll-ind{
-  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:8px;
-  animation:bounce 2.2s infinite;
-}
-.scroll-ind span{font-size:8px;letter-spacing:3px;color:rgba(201,168,76,0.5);text-transform:uppercase;}
-.scroll-ind .s-line{width:1px;height:44px;background:linear-gradient(to bottom,var(--gold),transparent);}
-@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(9px)}}
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-/* ── FOUNDER ── */
-#founder{
-  min-height:100vh;background:var(--bg);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:120px 40px 80px;
-}
-.circ-wrap{
-  border-radius:50%;border:3px solid var(--gold);
-  overflow:hidden;flex-shrink:0;
-  display:block;position:relative;
-  transition:box-shadow 0.4s;
-}
-.circ-wrap:hover{box-shadow:0 0 40px rgba(201,168,76,0.2);}
-.circ-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
-.founder-name{
-  font-family:'Montserrat',sans-serif;
-  font-size:clamp(30px,5.5vw,58px);font-weight:800;
-  letter-spacing:8px;text-align:center;margin-top:32px;margin-bottom:16px;
-}
-.founder-roles{
-  font-size:clamp(9px,1.2vw,11px);font-weight:400;
-  letter-spacing:3px;color:#777;text-align:center;
-  text-transform:uppercase;line-height:2.2;
-}
-
-/* ── BIO ── */
-#bio{
-  min-height:100vh;background:var(--bg2);
-  display:flex;align-items:center;padding:100px 0;
-}
-.bio-inner{
-  max-width:1200px;margin:0 auto;padding:0 64px;
-  display:grid;grid-template-columns:1fr 1.5fr;gap:80px;align-items:center;
-}
-.bio-left{display:flex;flex-direction:column;align-items:center;gap:24px;}
-.bio-divider{width:44px;height:1px;background:var(--gold);margin-bottom:28px;}
-.bio-text{font-size:14px;line-height:2.3;color:#4a4a4a;font-weight:300;margin-bottom:24px;}
-
-/* ── SECTION TITLES ── */
-.sec-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(28px,4.5vw,52px);font-weight:300;
-  letter-spacing:8px;text-align:center;
-  text-transform:uppercase;margin-bottom:14px;
-}
-.sec-title.light{color:var(--white);}
-.sec-title.dark{color:var(--dark);}
-.sec-title.gold{color:var(--gold);}
-.title-line{width:56px;height:1px;background:var(--gold);margin:0 auto 56px;}
-
-/* ── FILM ── */
-#film{
-  min-height:100vh;background:var(--dark);
-  padding:100px 60px;display:flex;flex-direction:column;align-items:center;
-}
-.film-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:14px;width:100%;max-width:1100px;margin-bottom:60px;
-}
-.film-caption{
-  font-size:12px;line-height:2;color:rgba(255,255,255,0.5);
-  text-align:center;max-width:820px;font-weight:300;letter-spacing:0.8px;
-}
-
-/* ── IMAGE CARD ── */
-.img-card{
-  position:relative;overflow:hidden;border-radius:4px;
-  cursor:pointer;background:#242424;
-  transition:transform 0.45s ease,box-shadow 0.45s ease;
-}
-.img-card:hover{transform:scale(1.04);z-index:5;box-shadow:0 8px 40px rgba(0,0,0,0.4);}
-.img-inner{width:100%;position:relative;overflow:hidden;}
-.img-inner.sq{padding-top:100%;}
-.img-inner.rect{padding-top:75%;}
-.img-inner.tall{padding-top:128%;}
-.img-inner img{
-  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  transition:transform 0.6s ease;
-}
-.img-card:hover .img-inner img{transform:scale(1.1);}
-.img-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(0,0,0,0.88) 0%,rgba(0,0,0,0) 55%);
-  opacity:0;transition:opacity 0.4s ease;
-  display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
-  padding:14px;pointer-events:none;
-}
-.img-card:hover .img-overlay{opacity:1;}
-.ov-title{
-  font-size:10px;font-weight:600;letter-spacing:2px;
-  color:var(--white);text-transform:uppercase;text-align:center;
-  transform:translateY(10px);transition:transform 0.4s ease;width:100%;
-}
-.img-card:hover .ov-title{transform:translateY(0);}
-
-/* ── CHOREOGRAPHY ── */
-#choreo{
-  min-height:100vh;background:var(--bg);
-  padding:100px 60px;display:flex;flex-direction:column;align-items:center;
-}
-.choreo-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:20px;width:100%;max-width:1100px;
-}
-.choreo-item{display:flex;flex-direction:column;gap:10px;}
-.choreo-cap{
-  font-size:10px;font-weight:600;letter-spacing:2px;
-  color:var(--dark);text-transform:uppercase;text-align:center;
-  min-height:30px;display:flex;align-items:center;justify-content:center;
-  padding:4px 6px;
-}
-
-/* ── INFO (3 columns) ── */
-#info{
-  min-height:100vh;background:var(--dark);
-  padding:100px 60px;display:flex;flex-direction:column;align-items:center;justify-content:center;
-}
-.info-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:60px;max-width:1100px;width:100%;
-}
-.info-col-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:20px;font-weight:400;color:var(--gold);
-  letter-spacing:4px;text-transform:uppercase;
-  margin-bottom:28px;padding-bottom:14px;
-  border-bottom:1px solid rgba(201,168,76,0.3);
-}
-.info-list{list-style:none;}
-.info-list li{
-  font-size:13px;font-weight:300;color:rgba(255,255,255,0.68);
-  letter-spacing:1.5px;padding:10px 0;
-  border-bottom:1px solid rgba(255,255,255,0.06);
-  transition:color 0.3s,padding-left 0.3s;cursor:default;
-}
-.info-list li:hover{color:var(--gold);padding-left:6px;}
-.info-note{font-size:11px;color:rgba(201,168,76,0.55);letter-spacing:1px;margin-top:18px;font-style:italic;}
-
-/* ── GALLERY ── */
-#gallery{background:var(--bg);padding:100px 0 40px;}
-.gallery-scroll-wrap{position:relative;margin-top:10px;}
-.h-scroll{
-  display:flex;gap:18px;overflow-x:auto;
-  padding:10px 60px 24px;
-  scroll-snap-type:x mandatory;scrollbar-width:none;
-  -webkit-overflow-scrolling:touch;
-}
-.h-scroll::-webkit-scrollbar{display:none;}
-.gallery-item{flex:0 0 230px;scroll-snap-align:start;}
-.gallery-item .img-inner{padding-top:130%;}
-.gallery-name{
-  font-size:10px;font-weight:500;letter-spacing:2px;
-  color:var(--dark);text-transform:uppercase;
-  margin-top:10px;text-align:center;
-  padding:4px;display:block;
-}
-
-/* ── ACHIEVEMENTS ── */
-#achievements{background:var(--bg2);padding:80px 0 60px;}
-.ach-scroll-wrap{position:relative;margin-top:10px;}
-.ach-scroll{
-  display:flex;gap:20px;overflow-x:auto;
-  padding:10px 60px 20px;
-  scroll-snap-type:x mandatory;scrollbar-width:none;
-}
-.ach-scroll::-webkit-scrollbar{display:none;}
-.ach-item{flex:0 0 340px;scroll-snap-align:start;}
-.ach-item .img-inner{padding-top:80%;}
-.ach-cap{
-  font-size:11px;color:#666;letter-spacing:1px;
-  margin-top:10px;text-align:center;line-height:1.8;
-  padding:4px;display:block;
-}
-
-/* ── TESTIMONIALS ── */
-#testimonials{background:var(--bg);padding:60px 0 100px;}
-.testi-wrap{position:relative;}
-.testi-scroll{
-  display:flex;overflow-x:auto;
-  scroll-snap-type:x mandatory;scrollbar-width:none;
-}
-.testi-scroll::-webkit-scrollbar{display:none;}
-.testi-item{
-  flex:0 0 100%;scroll-snap-align:start;
-  display:flex;flex-direction:column;align-items:center;
-  padding:40px 100px;text-align:center;
-}
-.testi-open-q{font-size:48px;color:var(--gold);line-height:1;font-family:'Georgia',serif;margin-bottom:10px;opacity:0.7;}
-.testi-quote{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(16px,2.4vw,22px);font-weight:400;font-style:italic;
-  color:var(--dark);line-height:2;margin-bottom:24px;
-  max-width:700px;
-}
-.testi-author{font-size:10px;font-weight:600;letter-spacing:3px;color:var(--gold);text-transform:uppercase;}
-.testi-dots{display:flex;gap:10px;justify-content:center;margin-top:32px;}
-.t-dot{width:7px;height:7px;border-radius:50%;background:rgba(201,168,76,0.3);cursor:pointer;transition:all 0.3s;}
-.t-dot.active{background:var(--gold);transform:scale(1.4);}
-
-/* ── SCROLL BUTTONS ── */
-.scroll-btn{
-  position:absolute;top:50%;transform:translateY(-50%);
-  width:42px;height:42px;border-radius:50%;
-  background:var(--dark);border:1px solid var(--gold);
-  color:var(--gold);font-size:20px;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  transition:all 0.3s;z-index:10;line-height:1;
-}
-.scroll-btn:hover{background:var(--gold);color:var(--dark);}
-.scroll-btn.l{left:14px;}
-.scroll-btn.r{right:14px;}
-
-/* ── CONTACT ── */
-#contact{min-height:100vh;background:var(--dark);display:grid;grid-template-columns:1fr 1fr;}
-.contact-left{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:80px 60px;
-  background:rgba(0,0,0,0.25);
-  border-right:1px solid rgba(201,168,76,0.12);
-  min-height:100vh;
-}
-.c-logo-wrap{
-  width:120px;height:120px;border-radius:50%;
-  background:var(--dark);border:2px solid var(--gold);
-  overflow:hidden;position:relative;
-  display:flex;align-items:center;justify-content:center;
-  margin-bottom:28px;transition:box-shadow 0.4s;
-}
-.c-logo-wrap:hover{box-shadow:0 0 30px rgba(201,168,76,0.2);}
-.c-logo-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%;z-index:2;}
-.c-studio-name{
-  font-family:'Montserrat',sans-serif;
-  font-size:clamp(11px,1.6vw,16px);font-weight:700;
-  letter-spacing:5px;color:var(--gold);text-transform:uppercase;
-  text-align:center;margin-bottom:14px;
-}
-.c-quote{font-family:'Dancing Script',cursive;font-size:20px;color:rgba(201,168,76,0.65);text-align:center;}
-.contact-right{padding:80px 60px;display:flex;flex-direction:column;justify-content:center;}
-.contact-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:30px;font-weight:300;color:var(--gold);
-  letter-spacing:5px;text-transform:uppercase;margin-bottom:48px;
-}
-.c-item{
-  display:flex;align-items:flex-start;gap:16px;
-  margin-bottom:26px;padding-bottom:26px;
-  border-bottom:1px solid rgba(255,255,255,0.06);
-}
-.c-item:last-child{border-bottom:none;}
-.c-icon{
-  width:38px;height:38px;border-radius:50%;
-  border:1px solid rgba(201,168,76,0.4);
-  display:flex;align-items:center;justify-content:center;
-  font-size:15px;color:var(--gold);flex-shrink:0;
-}
-.c-texts{display:flex;flex-direction:column;gap:4px;}
-.c-label{font-size:9px;letter-spacing:3px;color:rgba(255,255,255,0.35);text-transform:uppercase;}
-.c-val{font-size:13px;color:rgba(255,255,255,0.82);font-weight:300;letter-spacing:0.5px;text-decoration:none;transition:color 0.3s;}
-.c-val:hover{color:var(--gold);}
-.c-addr{font-size:13px;color:rgba(255,255,255,0.7);font-weight:300;line-height:2;}
-
-/* ── FOOTER ── */
-#footer{background:#0d0d0d;padding:22px 40px;text-align:center;}
-#footer p{font-size:9px;color:rgba(201,168,76,0.35);letter-spacing:3px;text-transform:uppercase;}
-
-/* ── ANIMATIONS ── */
-.fade-up{opacity:0;transform:translateY(44px);transition:opacity 0.9s ease,transform 0.9s ease;}
-.fade-up.visible{opacity:1;transform:translateY(0);}
-.fade-left{opacity:0;transform:translateX(-50px);transition:opacity 0.9s ease,transform 0.9s ease;}
-.fade-left.visible{opacity:1;transform:translateX(0);}
-.fade-right{opacity:0;transform:translateX(50px);transition:opacity 0.9s ease,transform 0.9s ease;}
-.fade-right.visible{opacity:1;transform:translateX(0);}
-.fade-scale{opacity:0;transform:scale(0.9);transition:opacity 0.9s ease,transform 0.9s ease;}
-.fade-scale.visible{opacity:1;transform:scale(1);}
-.ce-grid .ce-item{opacity:0;transform:scale(0.65) translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
-.ce-grid.visible .ce-item{opacity:1;transform:scale(1) translateY(0);}
-.d1{transition-delay:0.08s;}.d2{transition-delay:0.16s;}.d3{transition-delay:0.24s;}
-.d4{transition-delay:0.32s;}.d5{transition-delay:0.40s;}.d6{transition-delay:0.48s;}
-.d7{transition-delay:0.56s;}.d8{transition-delay:0.64s;}.d9{transition-delay:0.72s;}
-.d10{transition-delay:0.80s;}.d11{transition-delay:0.88s;}.d12{transition-delay:0.96s;}
-.d13{transition-delay:1.04s;}.d14{transition-delay:1.12s;}.d15{transition-delay:1.20s;}
-
-/* ── RESPONSIVE ── */
-@media(max-width:960px){
-  .bio-inner{grid-template-columns:1fr;gap:40px;padding:0 32px;}
-  .bio-left{display:none;}
-  .film-grid{grid-template-columns:repeat(3,1fr);}
-  .choreo-grid{grid-template-columns:repeat(2,1fr);}
-  .info-grid{grid-template-columns:1fr;gap:40px;}
-  #contact{grid-template-columns:1fr;}
-  .contact-left{min-height:auto;border-right:none;border-bottom:1px solid rgba(201,168,76,0.12);}
-  #film,#choreo,#info{padding:80px 30px;}
-  .hdr-nav{display:none;}
-  #sticky-header{padding:12px 20px;}
-  .testi-item{padding:30px 40px;}
-}
-@media(max-width:600px){
-  .film-grid{grid-template-columns:repeat(2,1fr);}
-  .choreo-grid{grid-template-columns:repeat(2,1fr);}
-  .gallery-item{flex:0 0 175px;}
-  .ach-item{flex:0 0 270px;}
-  .hero-title{letter-spacing:3px;}
-}
-</style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- STICKY HEADER -->
-<header id="sticky-header">
-  <div class="hdr-left">
-    <div class="hdr-logo">
-      <img src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=80&h=80&fit=crop&crop=faces" alt="MONG Logo"/>
-    </div>
-    <span class="hdr-name">MONG Dance &amp; Fitness Studio</span>
-  </div>
-  <nav class="hdr-nav">
-    <a onclick="scrollTo('founder')">About</a>
-    <a onclick="scrollTo('film')">Film</a>
-    <a onclick="scrollTo('choreo')">Choreography</a>
-    <a onclick="scrollTo('gallery')">Gallery</a>
-    <a onclick="scrollTo('contact')">Contact</a>
+<header class="navbar">
+  <div class="logo-box">
+  <img src="images/logo.jpeg" alt="MONG Logo">
+</div>
+
+  <nav>
+    <a href="#founder">Founder</a>
+    <a href="#film">Film & Media</a>
+    <a href="#services">Our Services</a>
+    <a href="#stage">Our Stage Works</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-logo-wrap">
-    <img src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=300&h=300&fit=crop&crop=faces" alt="MONG Logo"/>
-  </div>
-  <div class="fade-up" id="hero-title-wrap">
-    <h1 class="hero-title">MONG Dance &amp; Fitness Studio</h1>
-  </div>
-  <div class="fade-up" id="hero-quote-wrap" style="transition-delay:0.35s;">
-    <p class="hero-quote">"Dance connects your feet with your heart"</p>
-  </div>
-  <div class="scroll-ind">
-    <span>Scroll</span>
-    <div class="s-line"></div>
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-logo">
+  <img src="images/logo.jpeg" alt="MONG Logo">
+    </div>
+
+  <div class="hero-content">
+    <h1>MONG DANCE & FITNESS STUDIO</h1>
+    <p>Dance is not just movement. It is emotion in motion.</p>
   </div>
 </section>
 
-<!-- FOUNDER -->
-<section id="founder">
-  <div class="fade-scale" id="founder-anim">
-    <div class="circ-wrap" style="width:200px;height:200px;">
-      <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=400&h=400&fit=crop&crop=faces" alt="Founder"/>
+<section id="founder" class="founder-section">
+
+  <div class="founder-content">
+
+    <div class="founder-image">
+      <img src="images/founder.jpeg" alt="Founder">
     </div>
-    <h2 class="founder-name"><span style="color:var(--gold)">MONG</span></h2>
-    <p class="founder-roles">Founder &nbsp;|&nbsp; Choreographer &nbsp;|&nbsp; Dance Educator<br/>Performer &nbsp;|&nbsp; Creative Director</p>
+
+    <h2>Founder</h2>
+
+    <div class="gold-line"></div>
+
+    <h3>MONG</h3>
+
+    <p>
+I am a passionate and dynamic choreographer with 6 years of experience in choreography and over 14 years of experience as a dancer. Over the years, I have created and directed dance routines for a wide range of events, stage performances, classes, projects, and visual productions.
+<br><br>
+My approach to choreography combines creativity, storytelling, musicality, and performance energy to create engaging and impactful experiences for audiences. I enjoy working across different styles and concepts, always focusing on bringing originality, precision, and emotion into every performance.
+<br><br>
+Alongside choreography, I have experience collaborating with dancers, creative teams, and directors to ensure smooth execution and strong stage presentation. I strive to create performances that are visually compelling, meaningful, and memorable for both performers and audiences alike.
+<br><br>
+Beyond performance and choreography, I am deeply passionate about teaching dance as an art form. I believe dance is not only about movement, but also about expression, discipline, confidence, and individuality. I strive to create a positive and inspiring learning environment where students can grow creatively, build self-confidence, and develop a genuine love for dance.
+</p>
+
   </div>
+
 </section>
 
-<!-- BIO -->
-<section id="bio">
-  <div class="bio-inner">
-    <div class="bio-left fade-left" id="bio-left-anim">
-      <div class="circ-wrap" style="width:240px;height:240px;">
-        <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=480&h=480&fit=crop&crop=faces" alt="Founder"/>
-      </div>
-      <h2 class="founder-name" style="font-size:clamp(22px,3vw,34px);"><span style="color:var(--gold)">MONG</span></h2>
-      <p class="founder-roles" style="text-align:center;">Founder | Choreographer<br/>Dance Educator | Performer</p>
-    </div>
-    <div class="bio-right fade-right" id="bio-right-anim" style="transition-delay:0.2s;">
-      <div class="bio-divider"></div>
-      <p class="bio-text">I am a passionate and dynamic choreographer with 6 years of experience in choreography and over 14 years of experience as a dancer. Over the years, I have created and directed dance routines for a wide range of events, stage performances, classes, projects, and visual productions.</p>
-      <p class="bio-text">My approach to choreography combines creativity, storytelling, musicality, and performance energy to create engaging and impactful experiences for audiences. I enjoy working across different styles and concepts, always focusing on bringing originality, precision, and emotion into every performance.</p>
-      <p class="bio-text">Alongside choreography, I have experience collaborating with dancers, creative teams, and directors to ensure smooth execution and strong stage presentation. I strive to create performances that are visually compelling, meaningful, and memorable for both performers and audiences alike.</p>
-      <p class="bio-text">Beyond performance and choreography, I am deeply passionate about teaching dance as an art form. I believe dance is not only about movement, but also about expression, discipline, confidence, and individuality. I strive to create a positive and inspiring learning environment where students can grow creatively, build self-confidence, and develop a genuine love for dance.</p>
-    </div>
-  </div>
-</section>
+<section id="film" class="dark-section">
+  <h2>Film & Media Works</h2>
+  <div class="gold-line"></div>
 
-<!-- FILM & MEDIA -->
-<section id="film">
-  <div class="fade-up" id="film-title-anim">
-    <h2 class="sec-title light">Film &amp; Media Works</h2>
-    <div class="title-line"></div>
-  </div>
-  <div class="film-grid ce-grid" id="film-grid"></div>
-  <div class="fade-up" id="film-caption-anim" style="transition-delay:0.3s;">
-    <p class="film-caption">Worked as an assistant choreographer alongside leading choreographers in the film industry, television industry and Digital Medias contributing to the creative and executional aspects of film songs, promotional shoots, and media productions. Gained valuable experience in choreography planning, artist coordination, rehearsal management, and on-set performance execution within professional production environments.</p>
-  </div>
-</section>
+  <p class="section-text">
+    Professional choreography journey across cinema, television and media collaborations.
+  </p>
 
-<!-- CHOREOGRAPHY -->
-<section id="choreo">
-  <div class="fade-up" id="choreo-title-anim">
-    <h2 class="sec-title dark">Choreography</h2>
-    <div class="title-line"></div>
-  </div>
-  <div class="choreo-grid ce-grid" id="choreo-grid"></div>
-</section>
+  <div class="grid-container">
 
-<!-- INFO -->
-<section id="info">
-  <div class="fade-up" id="info-anim">
-    <div class="info-grid">
-      <div>
-        <h3 class="info-col-title">Dance Styles We Train</h3>
-        <ul class="info-list">
-          <li>Hip Hop</li><li>Ballet</li><li>Contemporary</li>
-          <li>Rock &amp; Roll</li><li>Salsa</li><li>Bollywood</li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="info-col-title">Our Batches</h3>
-        <ul class="info-list">
-          <li>Kids Dance</li><li>Adult Dance</li>
-          <li>Fitness Training through Dance</li>
-          <li>Women's Special Batches</li>
-          <li>Competition Training</li>
-          <li>Personal One to One Training</li>
-          <li>Online Classes</li><li>Workshops</li>
-        </ul>
-        <p class="info-note">✦ Weekly and Weekend batches available</p>
-      </div>
-      <div>
-        <h3 class="info-col-title">Our Services &amp; Collaborations</h3>
-        <ul class="info-list">
-          <li>Album Video</li><li>Digital Media Platforms</li>
-          <li>School ECA</li><li>College Events</li>
-          <li>Corporate Events</li><li>Community Houses</li>
-          <li>Event Organizers</li><li>Geriatric Fitness Training</li>
-        </ul>
-      </div>
+    <div class="card">
+      <img src="images/image 1.jpeg">
+      <p>Working alongside Prabhu Deva Master as Assistant Choreographer</p>
     </div>
-  </div>
-</section>
 
-<!-- GALLERY -->
-<section id="gallery">
-  <div class="fade-up" id="gallery-title-anim" style="padding:0 60px;text-align:center;">
-    <h2 class="sec-title dark">Gallery</h2>
-    <div class="title-line"></div>
-  </div>
-  <div class="gallery-scroll-wrap">
-    <button class="scroll-btn l" onclick="hScroll('gallery-scroll',-250)">&#8249;</button>
-    <div class="h-scroll" id="gallery-scroll"></div>
-    <button class="scroll-btn r" onclick="hScroll('gallery-scroll',250)">&#8250;</button>
-  </div>
-</section>
+    <div class="card">
+      <img src="images/image 2.jpeg">
+      <p>With Renowned Choreographer Baba Bhaskar Master</p>
+    </div>
 
-<!-- ACHIEVEMENTS -->
-<section id="achievements">
-  <div class="fade-up" id="ach-title-anim" style="text-align:center;">
-    <h2 class="sec-title dark">Achievements</h2>
-    <div class="title-line"></div>
-  </div>
-  <div class="ach-scroll-wrap">
-    <button class="scroll-btn l" onclick="hScroll('ach-scroll',-360)" style="top:48%;">&#8249;</button>
-    <div class="ach-scroll" id="ach-scroll"></div>
-    <button class="scroll-btn r" onclick="hScroll('ach-scroll',360)" style="top:48%;">&#8250;</button>
-  </div>
-</section>
+    <div class="card">
+      <img src="images/image 3.jpeg">
+      <p>At the “Thaai Kizhavi” Success Meet with Actor Sivakarthikeyan</p>
+    </div>
 
-<!-- TESTIMONIALS -->
-<section id="testimonials">
-  <div class="fade-up" id="testi-title-anim" style="text-align:center;">
-    <h2 class="sec-title dark">Testimonials</h2>
-    <div class="title-line"></div>
-  </div>
-  <div class="testi-wrap">
-    <button class="scroll-btn l" onclick="prevTesti()" style="top:42%;">&#8249;</button>
-    <div class="testi-scroll" id="testi-scroll"></div>
-    <button class="scroll-btn r" onclick="nextTesti()" style="top:42%;">&#8250;</button>
-  </div>
-  <div class="testi-dots" id="testi-dots"></div>
-</section>
+    <div class="card">
+      <img src="images/image 4.jpeg">
+      <p>On the sets of “Viruman” with Actor Soori</p>
+    </div>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="contact-left fade-left" id="contact-left-anim">
-    <div class="c-logo-wrap">
-      <img src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=240&h=240&fit=crop&crop=faces" alt="MONG Logo"/>
+    <div class="card">
+      <img src="images/image 5.jpeg">
+      <p>With Director K. S. Ravikumar during the “Kadhanayagi” Television Show</p>
     </div>
-    <p class="c-studio-name">MONG Dance &amp; Fitness Studio</p>
-    <p class="c-quote">"Dance connects your feet with your heart"</p>
-  </div>
-  <div class="contact-right fade-right" id="contact-right-anim" style="transition-delay:0.2s;">
-    <h3 class="contact-title">Get In Touch</h3>
-    <div class="c-item">
-      <div class="c-icon">📞</div>
-      <div class="c-texts">
-        <span class="c-label">Phone</span>
-        <a href="tel:9677531847" class="c-val">+91 96775 31847</a>
-      </div>
-    </div>
-    <div class="c-item">
-      <div class="c-icon">💬</div>
-      <div class="c-texts">
-        <span class="c-label">WhatsApp</span>
-        <a href="https://wa.me/919677531847" class="c-val">+91 96775 31847</a>
-      </div>
-    </div>
-    <div class="c-item">
-      <div class="c-icon">📸</div>
-      <div class="c-texts">
-        <span class="c-label">Instagram</span>
-        <a href="https://www.instagram.com/mongdancestudio?igsh=MWN4aXk1bDNhdjd4bg==" target="_blank" class="c-val">@mongdancestudio</a>
-      </div>
-    </div>
-    <div class="c-item">
-      <div class="c-icon">✉️</div>
-      <div class="c-texts">
-        <span class="c-label">Email</span>
-        <a href="mailto:mongdancestudio@gmail.com" class="c-val">mongdancestudio@gmail.com</a>
-      </div>
-    </div>
-    <div class="c-item">
-      <div class="c-icon">📍</div>
-      <div class="c-texts">
-        <span class="c-label">Address</span>
-        <p class="c-addr">No 3/2 AVM Avenue, 2nd Main Road,<br/>Virugambakkam, Chennai – 600092</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- FOOTER -->
-<div id="footer">
-  <p>© 2025 MONG Dance &amp; Fitness Studio — Chennai</p>
+    <div class="card">
+      <img src="images/image 6.jpeg">
+      <p>With Choreographer Amir Master</p>
+    </div>
+
+    <div class="card">
+      <img src="images/image 7.jpeg">
+      <p>With Choreographer Kalyaan Master</p>
+    </div>
+    <div class="film-extra-text">
+Worked as an assistant choreographer alongside leading choreographers in the film industry, television industry and Digital Medias contributing to the creative and executional aspects of film songs, promotional shoots, and media productions.
 </div>
 
-<script>
-// ── Sample photo pools (Unsplash) ──
-const filmPhotos = [
-  'https://images.unsplash.com/photo-1547153760-18fc86324498?w=600&h=450&fit=crop',
-  'https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=600&h=450&fit=crop',
-  'https://images.unsplash.com/photo-1535525153412-5a42439a210d?w=600&h=450&fit=crop',
-  'https://images.unsplash.com/photo-1524594152303-9fd13543fe6e?w=600&h=450&fit=crop',
-  'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=600&h=450&fit=crop',
-  'https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=600&h=450&fit=crop',
-  'https://images.unsplash.com/photo-1548078081-6016d7bbc1e2?w=600&h=450&fit=crop',
-  'https://images.unsplash.com/photo-1580130775562-0ef92da028de?w=600&h=450&fit=crop',
-  'https://images.unsplash.com/photo-1541346183200-e8e117d945b9?w=600&h=450&fit=crop',
-  'https://images.unsplash.com/photo-1545959570-a94084071b5d?w=600&h=450&fit=crop',
-  'https://images.unsplash.com/photo-1578530332818-5b4b4b4b4b4b?w=600&h=450&fit=crop',
-  'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&h=450&fit=crop',
-];
-const choreoPhotos = [
-  'https://images.unsplash.com/photo-1547153760-18fc86324498?w=600&h=450&fit=crop',
-  'https://images.unsplash.com/photo-1535525153412-5a42439a210d?w=600&h=450&fit=crop',
-  'https://images.unsplash.com/photo-1524594152303-9fd13543fe6e?w=600&h=450&fit=crop',
-  'https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=600&h=450&fit=crop',
-  'https://images.unsplash.com/photo-1548078081-6016d7bbc1e2?w=600&h=450&fit=crop',
-  'https://images.unsplash.com/photo-1580130775562-0ef92da028de?w=600&h=450&fit=crop',
-  'https://images.unsplash.com/photo-1541346183200-e8e117d945b9?w=600&h=450&fit=crop',
-  'https://images.unsplash.com/photo-1545959570-a94084071b5d?w=600&h=450&fit=crop',
-];
-const galleryPhotos = [
-  'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=400&h=520&fit=crop',
-  'https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=400&h=520&fit=crop',
-  'https://images.unsplash.com/photo-1547153760-18fc86324498?w=400&h=520&fit=crop',
-  'https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=400&h=520&fit=crop',
-  'https://images.unsplash.com/photo-1535525153412-5a42439a210d?w=400&h=520&fit=crop',
-  'https://images.unsplash.com/photo-1524594152303-9fd13543fe6e?w=400&h=520&fit=crop',
-  'https://images.unsplash.com/photo-1548078081-6016d7bbc1e2?w=400&h=520&fit=crop',
-  'https://images.unsplash.com/photo-1580130775562-0ef92da028de?w=400&h=520&fit=crop',
-  'https://images.unsplash.com/photo-1541346183200-e8e117d945b9?w=400&h=520&fit=crop',
-  'https://images.unsplash.com/photo-1545959570-a94084071b5d?w=400&h=520&fit=crop',
-  'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=400&h=520&fit=crop',
-  'https://images.unsplash.com/photo-1560807707-8cc77767d783?w=400&h=520&fit=crop',
-  'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=400&h=520&fit=crop&crop=top',
-  'https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=400&h=520&fit=crop&crop=top',
-  'https://images.unsplash.com/photo-1547153760-18fc86324498?w=400&h=520&fit=crop&crop=top',
-];
-const achPhotos = [
-  'https://images.unsplash.com/photo-1549057446-9f5c6ac91a04?w=600&h=480&fit=crop',
-  'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=600&h=480&fit=crop',
-  'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=480&fit=crop',
-  'https://images.unsplash.com/photo-1547153760-18fc86324498?w=600&h=480&fit=crop',
-  'https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=600&h=480&fit=crop',
-  'https://images.unsplash.com/photo-1535525153412-5a42439a210d?w=600&h=480&fit=crop',
-];
+  </div>
+</section>
+<section id="services" class="services-section">
 
-// ── SCROLL TO SECTION ──
-function scrollTo(id){const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'});}
+<h2>OUR SERVICES & COLLABORATIONS</h2>
+<div class="gold-line"></div>
 
-// ── STICKY HEADER ──
-const heroEl=document.getElementById('hero');
-const header=document.getElementById('sticky-header');
-window.addEventListener('scroll',()=>{
-  const b=heroEl.getBoundingClientRect().bottom;
-  header.classList.toggle('visible',b<0);
-});
+<div class="service-list">
 
-// ── INTERSECTION OBSERVER ──
-const io=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
-},{threshold:0.08});
-function observe(id){const el=document.getElementById(id);if(el)io.observe(el);}
+<div>Album Video</div>
+<div>Digital Media Platforms</div>
+<div>School ECA</div>
+<div>College Events</div>
+<div>Corporate Events</div>
+<div>Community Houses</div>
+<div>Event Organizers</div>
+<div>Geriatric Fitness Training</div>
 
-// ── HERO ANIMATE ON LOAD ──
-window.addEventListener('load',()=>{
-  setTimeout(()=>document.getElementById('hero-title-wrap').classList.add('visible'),300);
-  setTimeout(()=>document.getElementById('hero-quote-wrap').classList.add('visible'),700);
-});
+</div>
 
-// ── IMAGE CARD BUILDER (no upload, just photo) ──
-function makeImgCard(src, overlayTitle, rect){
-  const card=document.createElement('div');
-  card.className='img-card';
-  const inner=document.createElement('div');
-  inner.className='img-inner '+(rect?'rect':'sq');
-  const img=document.createElement('img');
-  img.src=src;
-  img.alt=overlayTitle||'photo';
-  img.loading='lazy';
-  const ov=document.createElement('div');
-  ov.className='img-overlay';
-  const ovTitle=document.createElement('div');
-  ovTitle.className='ov-title';
-  ovTitle.textContent=overlayTitle||'';
-  ov.appendChild(ovTitle);
-  inner.appendChild(img);
-  inner.appendChild(ov);
-  card.appendChild(inner);
-  return card;
-}
+</section>
 
-// ── BUILD FILM GRID ──
-const filmGrid=document.getElementById('film-grid');
-const filmTitles=['Film Song','TV Show','Digital Ad','Music Video','Promo Shoot','Stage Show','Web Series','Short Film','Brand Film','Docudrama','Dance Video','Live Event'];
-for(let i=0;i<12;i++){
-  const wrap=document.createElement('div');
-  wrap.className='ce-item d'+(i+1);
-  wrap.appendChild(makeImgCard(filmPhotos[i%filmPhotos.length],filmTitles[i],true));
-  filmGrid.appendChild(wrap);
-}
-io.observe(filmGrid);
+<section class="batches-section">
 
-// ── BUILD CHOREO GRID ──
-const choreoGrid=document.getElementById('choreo-grid');
-const choreoDefTitles=['Performance','Stage Work','Classical','Contemporary','Hip Hop','Bollywood','Fusion','Workshop'];
-for(let i=0;i<8;i++){
-  const wrap=document.createElement('div');
-  wrap.className='ce-item d'+(i+1);
-  const item=document.createElement('div');
-  item.className='choreo-item';
-  item.appendChild(makeImgCard(choreoPhotos[i%choreoPhotos.length],choreoDefTitles[i],true));
-  const cap=document.createElement('div');
-  cap.className='choreo-cap';
-  cap.textContent=choreoDefTitles[i];
-  item.appendChild(cap);
-  wrap.appendChild(item);
-  choreoGrid.appendChild(wrap);
-}
-io.observe(choreoGrid);
+<h2>OUR BATCHES</h2>
+<div class="gold-line"></div>
 
-// ── BUILD GALLERY SCROLL ──
-const galleryScroll=document.getElementById('gallery-scroll');
-const galNames=['Stage Night','Rehearsal','Performance','Group Show','Solo Act','Workshop Day','Costume Call','Behind Scenes','Spotlight','Class Recap','Event Night','Studio Session','Competition','Recital','Showcase'];
-for(let i=0;i<15;i++){
-  const item=document.createElement('div');
-  item.className='gallery-item';
-  item.appendChild(makeImgCard(galleryPhotos[i%galleryPhotos.length],galNames[i],false));
-  const name=document.createElement('span');
-  name.className='gallery-name';
-  name.textContent=galNames[i];
-  item.appendChild(name);
-  galleryScroll.appendChild(item);
-}
+<div class="service-list">
 
-// ── BUILD ACHIEVEMENTS SCROLL ──
-const achScroll=document.getElementById('ach-scroll');
-const achCaps=[
-  'Best Choreographer Award 2023',
-  'Regional Dance Championship — Gold',
-  'Featured in Chennai Times',
-  'National Level Performance 2022',
-  'Dance Excellence Recognition',
-  'Collaboration with Leading Film Studios',
-];
-for(let i=0;i<6;i++){
-  const item=document.createElement('div');
-  item.className='ach-item';
-  item.appendChild(makeImgCard(achPhotos[i%achPhotos.length],achCaps[i],true));
-  const cap=document.createElement('span');
-  cap.className='ach-cap';
-  cap.textContent=achCaps[i];
-  item.appendChild(cap);
-  achScroll.appendChild(item);
-}
+<div>Kids Dance</div>
+<div>Adult Dance</div>
+<div>Fitness Training through Dance</div>
+<div>Women's Special Batches</div>
+<div>Competition Training</div>
+<div class="gold-text">Personal One to One Training</div>
+<div>Online Classes</div>
+<div>Workshops</div>
 
-// ── BUILD TESTIMONIALS ──
-const testiData=[
-  {quote:"MONG Dance Studio transformed my daughter's confidence. The teaching is extraordinary and the environment is warm and inspiring.",author:"Parent — Student"},
-  {quote:"The choreography work by MONG is truly cinematic. Every movement tells a story with incredible depth and emotion.",author:"Film Producer"},
-  {quote:"Best dance training I have ever experienced. Professional, passionate, and deeply creative in every session.",author:"Student"},
-  {quote:"Their Bollywood choreography for our corporate event was absolutely outstanding. Highly recommended for any occasion.",author:"Corporate Client"},
-  {quote:"MONG brings a rare combination of artistic vision and technical precision to every performance and production.",author:"Fellow Choreographer"},
-];
-const testiScroll=document.getElementById('testi-scroll');
-const testiDots=document.getElementById('testi-dots');
-let activeTesti=0;
-testiData.forEach((t,i)=>{
-  const item=document.createElement('div');
-  item.className='testi-item';
-  item.innerHTML=`<div class="testi-open-q">"</div><p class="testi-quote">${t.quote}</p><p class="testi-author">— ${t.author}</p>`;
-  testiScroll.appendChild(item);
-  const dot=document.createElement('div');
-  dot.className='t-dot'+(i===0?' active':'');
-  dot.onclick=()=>goTesti(i);
-  testiDots.appendChild(dot);
-});
-function goTesti(idx){
-  activeTesti=idx;
-  testiScroll.scrollTo({left:idx*testiScroll.offsetWidth,behavior:'smooth'});
-  document.querySelectorAll('.t-dot').forEach((d,i)=>d.classList.toggle('active',i===idx));
-}
-function nextTesti(){goTesti(Math.min(testiData.length-1,activeTesti+1));}
-function prevTesti(){goTesti(Math.max(0,activeTesti-1));}
+</div>
 
-// ── HORIZONTAL SCROLL HELPER ──
-function hScroll(id,amount){const el=document.getElementById(id);if(el)el.scrollBy({left:amount,behavior:'smooth'});}
+<p class="batch-note">
+✦ Weekly and Weekend batches available
+</p>
 
-// ── OBSERVE ALL FADE ELEMENTS ──
-['founder-anim','bio-left-anim','bio-right-anim',
- 'film-title-anim','film-caption-anim','choreo-title-anim',
- 'info-anim','gallery-title-anim','ach-title-anim',
- 'testi-title-anim','contact-left-anim','contact-right-anim'
-].forEach(observe);
-</script>
+</section>
+
+<section class="styles-section">
+
+<h2>DANCE STYLES WE TRAIN</h2>
+<div class="gold-line"></div>
+
+<div class="service-list">
+
+<div>Hip Hop</div>
+<div>Ballet</div>
+<div>Contemporary</div>
+<div class="gold-text">Rock & Roll</div>
+<div>Salsa</div>
+<div>Bollywood</div>
+
+</div>
+
+</section>
+
+<section id="stage" class="light-section">
+  <h2>Our Stage Works</h2>
+  <div class="gold-line"></div>
+
+  <div class="grid-container">
+
+    <div class="card dark-text">
+      <img src="images/image 8.jpg">
+      <p>Stage Performance - Avatar</p>
+    </div>
+
+    <div class="card dark-text">
+      <img src="images/image 9.jpg">
+      <p>Stage Performance - Money Heist</p>
+    </div>
+
+    <div class="card dark-text">
+      <img src="images/image 10.jpg">
+      <p>Competition Practise</p>
+    </div>
+
+    <div class="card dark-text">
+      <img src="images/image 11.jpg">
+      <p>Winning Moment</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="gallery" class="gallery-section">
+
+<h2>Gallery</h2>
+<div class="gold-line"></div>
+
+<div class="gallery-scroll">
+
+<img src="images/image 12.jpeg">
+<img src="images/image 13.jpeg">
+<img src="images/image 14.jpeg">
+<img src="images/image 15.jpeg">
+<img src="images/image 16.jpeg">
+<img src="images/image 17.jpeg">
+<img src="images/image 18.jpeg">
+<img src="images/image 19.jpg">
+
+</div>
+
+</section>
+<section id="contact" class="contact-section">
+
+<h2>GET IN TOUCH</h2>
+<div class="gold-line"></div>
+
+<div class="contact-list">
+
+<div class="contact-item">
+<h3>PHONE</h3>
+<p>+91 96775 31847</p>
+</div>
+<div class="contact-item">
+<h3>WHATSAPP</h3>
+<p>+91 96775 31847</p>
+</div>
+
+<div class="contact-item">
+<h3>INSTAGRAM</h3>
+<p>@mongdancestudio</p>
+</div>
+
+<div class="contact-item">
+<h3>EMAIL</h3>
+<p>mongdancestudio@gmail.com</p>
+</div>
+
+<div class="contact-item">
+<h3>ADDRESS</h3>
+<p>
+No 3/2 AVM Avenue,
+2nd Main Road,
+Virugambakkam,
+Chennai - 600092
+</p>
+</div>
+
+</div>
+
+</section>
+
+<script src="script.js"></script>
 </body>
 </html>
+
